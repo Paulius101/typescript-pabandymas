@@ -1,42 +1,59 @@
 "use strict";
-var a = 5;
+let a = 5;
 console.log(a);
 a = 785;
 console.log(a);
-var username = 'Vardenis';
+let username = 'Vardenis';
 username = '';
-var gimimoMetai = 2020;
+let gimimoMetai = 2020;
 gimimoMetai = parseInt('1900');
 gimimoMetai = 2000;
 gimimoMetai = +'2000';
-var arVedes = true;
-var inputArVedesReiksme = 'false';
+let arVedes = true;
+let inputArVedesReiksme = 'false';
 arVedes = inputArVedesReiksme === 'true';
 console.log(inputArVedesReiksme);
 console.log(arVedes);
 function sumavimas(a, b) {
+    if (typeof a !== 'number') {
+        return false;
+    }
     return '' + (a + b);
 }
-var suma1 = +sumavimas(7, 4);
+const suma1 = +sumavimas(7, 4);
 console.log(suma1);
-var suma2 = parseFloat(sumavimas(5, 88));
+const suma2 = parseFloat('' + sumavimas(5, 88));
 console.log(suma2);
-var luckyNumber = 7;
+let luckyNumber = 7;
 luckyNumber = 'seven';
-var pazymiai = [10, 2, 8, 4];
-var petriukas = {
+const pazymiai = [10, 2, 8, 4];
+let petriukas = {
     name: 'Petriukas',
     age: 9,
     marks: [2, 4, 6],
 };
-var maryte = {
+let maryte = {
     name: 'Maryte',
     age: 10,
     marks: [9, 7, 5],
 };
-var wanda = {
+let wanda = {
     name: 'Wanda',
     age: 10,
     marks: [7, 8]
 };
-var antraKlase = [petriukas, maryte, wanda];
+let antraKlase = [petriukas, maryte, wanda];
+class Pet {
+}
+class Dog extends Pet {
+}
+class Cat extends Pet {
+}
+// Generics
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numArray = getArray([1, 2, 3, 4]);
+let strArray = getArray(['brad', 'John', 'Jill']);
+strArray.push(1); // Throws error
+numArray.push(true); // Throws error
